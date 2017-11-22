@@ -18,13 +18,16 @@ import javax.swing.ButtonGroup;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.Panel;
+import javax.swing.SwingConstants;
 
 public class RunningExam extends JFrame {
 
 	private JPanel contentPane;
 	public JPanel panelparent;
-	public JPanel panel_2;
-	public JPanel panel_3;
+	public JPanel panel1;
+	public JPanel panel2;
+	public JPanel panel3;
+	
 	private final ButtonGroup buttonGroup1 = new ButtonGroup();
 	private final ButtonGroup buttonGroup2 = new ButtonGroup();
 	private final ButtonGroup buttonGroup3 = new ButtonGroup();
@@ -69,7 +72,7 @@ public class RunningExam extends JFrame {
 		lblPart1.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		lblPart1.setBounds(118, 38, 87, 42);
 		panel1.add(lblPart1);
-		panelparent.add(panel1);
+		panelparent.add(panel1,"panel1");
 		
 		JLabel lblQuestion1 = new JLabel("What ???");
 		lblQuestion1.setFont(new Font("Times New Roman", Font.BOLD, 20));
@@ -101,7 +104,7 @@ public class RunningExam extends JFrame {
 		panel1.add(checkBoxD1);
 		
 		JPanel panel2 = new JPanel();
-		panelparent.add(panel2);
+		panelparent.add(panel2,"panel2");
 		panel2.setLayout(null);
 		
 		JLabel lblPart2 = new JLabel("PART 2");
@@ -139,7 +142,7 @@ public class RunningExam extends JFrame {
 		panel2.add(checkBoxD2);
 		
 		JPanel panel3 = new JPanel();
-		panelparent.add(panel3, "name_1559935389624011");
+		panelparent.add(panel3, "panel3");
 		panel3.setLayout(null);
 		
 		JLabel lblPart3 = new JLabel("PART 3");
@@ -176,6 +179,74 @@ public class RunningExam extends JFrame {
 		checkBoxD3.setBounds(118, 446, 365, 29);
 		panel3.add(checkBoxD3);
 		
+		JPanel panel4 = new JPanel();
+		panelparent.add(panel4, "panel4");
+		panel4.setLayout(null);
+		
+		JLabel lblPart4 = new JLabel("PART 4");
+		lblPart4.setBounds(118, 40, 87, 29);
+		lblPart4.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		panel4.add(lblPart4);
+		
+		JLabel lblQuestion4 = new JLabel("What ???");
+		lblQuestion4.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblQuestion4.setBounds(118, 109, 364, 90);
+		panel4.add(lblQuestion4);
+		
+		JCheckBox checkBoxA4 = new JCheckBox("A. Aswer A.");
+		checkBoxA4.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		checkBoxA4.setBounds(118, 239, 365, 29);
+		panel4.add(checkBoxA4);
+		
+		JCheckBox checkBoxB4 = new JCheckBox("A. Aswer A.");
+		checkBoxB4.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		checkBoxB4.setBounds(118, 308, 365, 29);
+		panel4.add(checkBoxB4);
+		
+		JCheckBox checkBoxC4 = new JCheckBox("A. Aswer A.");
+		checkBoxC4.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		checkBoxC4.setBounds(118, 377, 365, 29);
+		panel4.add(checkBoxC4);
+		
+		JCheckBox checkBoxD4 = new JCheckBox("A. Aswer A.");
+		checkBoxD4.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		checkBoxD4.setBounds(118, 446, 365, 29);
+		panel4.add(checkBoxD4);
+		
+		JPanel panel5 = new JPanel();
+		panelparent.add(panel5, "panel5");
+		panel5.setLayout(null);
+		
+		JLabel lblPart5 = new JLabel("PART 5");
+		lblPart5.setBounds(118, 49, 87, 29);
+		lblPart5.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		panel5.add(lblPart5);
+		
+		JLabel lblQuestion5 = new JLabel("What ???");
+		lblQuestion5.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lblQuestion5.setBounds(118, 121, 364, 90);
+		panel5.add(lblQuestion5);
+		
+		JCheckBox checkBoxA5 = new JCheckBox("A. Aswer A.");
+		checkBoxA5.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		checkBoxA5.setBounds(118, 218, 365, 29);
+		panel5.add(checkBoxA5);
+		
+		JCheckBox checkBoxB5 = new JCheckBox("A. Aswer A.");
+		checkBoxB5.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		checkBoxB5.setBounds(118, 283, 365, 29);
+		panel5.add(checkBoxB5);
+		
+		JCheckBox checkBoxC5 = new JCheckBox("A. Aswer A.");
+		checkBoxC5.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		checkBoxC5.setBounds(118, 352, 365, 29);
+		panel5.add(checkBoxC5);
+		
+		JCheckBox checkBoxD5 = new JCheckBox("A. Aswer A.");
+		checkBoxD5.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		checkBoxD5.setBounds(118, 410, 365, 29);
+		panel5.add(checkBoxD5);
+		
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.inactiveCaptionBorder);
 		panel.setBounds(15, 16, 318, 531);
@@ -184,7 +255,7 @@ public class RunningExam extends JFrame {
 		JButton btnBack = new JButton("BACK");
 		btnBack.setBackground(SystemColor.info);
 		btnBack.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnBack.setBounds(49, 348, 95, 49);
+		btnBack.setBounds(48, 395, 95, 49);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CardLayout card = (CardLayout) panelparent.getLayout();
@@ -197,7 +268,7 @@ public class RunningExam extends JFrame {
 		JButton btnNext = new JButton("NEXT");
 		btnNext.setBackground(SystemColor.info);
 		btnNext.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		btnNext.setBounds(169, 348, 95, 49);
+		btnNext.setBounds(170, 395, 95, 49);
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CardLayout card = (CardLayout) panelparent.getLayout();
@@ -211,7 +282,9 @@ public class RunningExam extends JFrame {
 		btn1.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		btn1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				getPanel(panelparent,panel1);
+				CardLayout card = (CardLayout) panelparent.getLayout();
+				card.show(panelparent, "panel1");
+				//getPanel(panelparent,panel1);
 			}
 		});
 		btn1.setBounds(15, 16, 53, 56);
@@ -220,7 +293,9 @@ public class RunningExam extends JFrame {
 		JButton btn2 = new JButton("2");
 		btn2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				getPanel(panelparent,panel2);
+				CardLayout card = (CardLayout) panelparent.getLayout();
+				card.show(panelparent, "panel2");
+				//getPanel(panelparent,panel2);
 			}
 		});
 		btn2.setBackground(SystemColor.activeCaption);
@@ -231,7 +306,9 @@ public class RunningExam extends JFrame {
 		JButton btn3 = new JButton("3");
 		btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				getPanel(panelparent,panel3);
+				CardLayout card = (CardLayout) panelparent.getLayout();
+				card.show(panelparent, "panel3");
+				//getPanel(panelparent,panel3);
 			}
 		});
 		btn3.setBackground(SystemColor.activeCaption);
@@ -240,6 +317,12 @@ public class RunningExam extends JFrame {
 		panel.add(btn3);
 		
 		JButton bnt4 = new JButton("4");
+		bnt4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CardLayout card = (CardLayout) panelparent.getLayout();
+				card.show(panelparent, "panel4");
+			}
+		});
 		bnt4.setBackground(SystemColor.activeCaption);
 		bnt4.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		bnt4.setBounds(250, 16, 53, 56);
@@ -251,14 +334,20 @@ public class RunningExam extends JFrame {
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(buttonGroup1.getSelection().equals(checkBoxB1.getModel())) {
-					JOptionPane.showMessageDialog(null, "RIGHT");
+					JOptionPane.showMessageDialog(null,"");
 				}
 			}
 		});
-		btnSubmit.setBounds(91, 438, 131, 55);
+		btnSubmit.setBounds(91, 460, 131, 55);
 		panel.add(btnSubmit);
 		
 		JButton btn5 = new JButton("5");
+		btn5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CardLayout card = (CardLayout) panelparent.getLayout();
+				card.show(panelparent, "panel5");
+			}
+		});
 		btn5.setBackground(SystemColor.activeCaption);
 		btn5.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		btn5.setBounds(15, 104, 53, 56);
@@ -305,12 +394,26 @@ public class RunningExam extends JFrame {
 		btn12.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		btn12.setBounds(250, 192, 53, 56);
 		panel.add(btn12);
-	}
-	
-	public void getPanel(JPanel panelparent,JPanel p) {
-		panelparent.removeAll();
-		panelparent.add(p);
-		panelparent.repaint();
-		panelparent.revalidate();
+		
+		JLabel lblTime = new JLabel("TIME :");
+		lblTime.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lblTime.setBounds(35, 309, 95, 29);
+		panel.add(lblTime);
+		
+		JLabel label = new JLabel("00");
+		label.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		label.setBounds(145, 309, 29, 29);
+		panel.add(label);
+		
+		JLabel label_1 = new JLabel("00");
+		label_1.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		label_1.setBounds(216, 309, 29, 29);
+		panel.add(label_1);
+		
+		JLabel label_2 = new JLabel(":");
+		label_2.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		label_2.setHorizontalAlignment(SwingConstants.CENTER);
+		label_2.setBounds(182, 309, 29, 29);
+		panel.add(label_2);
 	}
 }
