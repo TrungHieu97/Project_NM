@@ -1,7 +1,10 @@
 package controller;
 
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import com.mysql.jdbc.Statement;
 
 import java.sql.Connection ;
 
@@ -14,6 +17,12 @@ public class ConnectionDB {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connect = DriverManager.getConnection(url,user,pass);
 			 System.out.println("success");
+			 Statement state=(Statement) connect.createStatement();
+			 ResultSet rs= state.executeQuery("select * from user");
+			 while(rs.next()) {
+				 System.out.println(rs.getString("name")+" "+rs.getString("password"));
+			 }
+			 
 		   
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

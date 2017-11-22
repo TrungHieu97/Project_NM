@@ -16,7 +16,7 @@ public class Account {
 	
 	public void setPassword(String password){
 		this.password = password;
-	}
+	}	
 	
 	public void setMark(int mark){
 		this.mark = mark;
