@@ -34,7 +34,7 @@ import javax.swing.ImageIcon;
 public class Login extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField nameField;
 	private JPasswordField passwordField;
 	
 	private JButton btnLogin;
@@ -79,11 +79,11 @@ public class Login extends JFrame implements ActionListener {
 		LbLogin.setFont(new Font("Times New Roman", Font.BOLD, 22));
 		panel.add(LbLogin);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Times New Roman", Font.PLAIN, 19));
-		textField.setBounds(234, 120, 220, 42);
-		panel.add(textField);
-		textField.setColumns(10);
+		nameField = new JTextField();
+		nameField.setFont(new Font("Times New Roman", Font.PLAIN, 19));
+		nameField.setBounds(234, 120, 220, 42);
+		panel.add(nameField);
+		nameField.setColumns(10);
 		
 		JLabel lblName = new JLabel("NAME :");
 		lblName.setIcon(new ImageIcon("user1.png"));
@@ -114,12 +114,17 @@ public class Login extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		JButton item = (JButton) e.getSource();
 		if(item == btnLogin){
-		   int i =	JOptionPane.showConfirmDialog(null, "Are you ready", "Bat dau",JOptionPane.YES_NO_OPTION );
-		   if ( i == JOptionPane.YES_OPTION ) {
-				RunningExam running = new RunningExam();
-				running.setVisible(true);
-				this.setVisible(false);
-			}
+			String n = nameField.getText();
+			String p = String.valueOf(passwordField.getPassword());
+			if ((n.equals("Dao Trung Hieu"))&& p.equals("daotrunghieu")) {
+	             int i =JOptionPane.showConfirmDialog(null, "Are you ready", "Bat dau",JOptionPane.YES_NO_OPTION );
+	             if ( i == JOptionPane.YES_OPTION ) {
+	        	 RunningExam running = new RunningExam();
+			     running.setVisible(true);
+			     this.setVisible(false);
+		         }
+		    }
+			else {JOptionPane.showMessageDialog(null, "User name or password not true");}
 		}
 		
 	}
