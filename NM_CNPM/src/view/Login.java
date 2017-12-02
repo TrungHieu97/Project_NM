@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import javafx.scene.image.Image;
+import model.Check_Login;
 
 import java.awt.Color;
 import javax.swing.JTextField;
@@ -116,11 +117,14 @@ public class Login extends JFrame implements ActionListener {
 		if(item == btnLogin){
 			String n = nameField.getText();
 			String p = String.valueOf(passwordField.getPassword());
-			if ((n.equals("Dao Trung Hieu"))&& p.equals("daotrunghieu")) {
+			Check_Login ck = new Check_Login();
+			boolean check = ck.check(n, p);
+			if (check) {
 	             int i =JOptionPane.showConfirmDialog(null, "Are you ready", "Bat dau",JOptionPane.YES_NO_OPTION );
 	             if ( i == JOptionPane.YES_OPTION ) {
 	        	 RunningExam running = new RunningExam();
-			     running.setVisible(true);
+	        	 running.setVisible(true);
+	        	// running.displayQuestion();
 			     this.setVisible(false);
 		         }
 		    }

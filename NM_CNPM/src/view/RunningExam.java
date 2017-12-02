@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
+import java.util.Vector;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import javax.swing.ButtonGroup;
@@ -19,6 +20,8 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.Panel;
 import javax.swing.SwingConstants;
+
+import model.*;
 
 public class RunningExam extends JFrame {
 
@@ -36,6 +39,22 @@ public class RunningExam extends JFrame {
 	public JPanel panel10;
 	public JPanel panel11;
 	public JPanel panel12;
+	
+	public JLabel lblQuestion1;
+	public JLabel lblQuestion2;
+	public JLabel lblQuestion3;
+	public JLabel lblQuestion4;
+	public JLabel lblQuestion5;
+	public JLabel lblQuestion6;
+	public JLabel lblQuestion7;
+	public JLabel lblQuestion8;
+	public JLabel lblQuestion9;
+	public JLabel lblQuestion10;
+	public JLabel lblQuestion11;
+	public JLabel lblQuestion12;
+	
+	
+	
 	
 	private final ButtonGroup buttonGroup1 = new ButtonGroup();
 	private final ButtonGroup buttonGroup2 = new ButtonGroup();
@@ -57,18 +76,14 @@ public class RunningExam extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RunningExam frame = new RunningExam();
-					frame.setVisible(true);
+					RunningExam exam = new RunningExam();
+					exam.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
 	public RunningExam() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 950, 619);
@@ -94,7 +109,7 @@ public class RunningExam extends JFrame {
 		
 		JLabel lblQuestion1 = new JLabel("What ???");
 		lblQuestion1.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblQuestion1.setBounds(118, 118, 364, 90);
+		lblQuestion1.setBounds(25, 80, 500, 130);
 		panel1.add(lblQuestion1);
 		
 		JCheckBox checkBoxA1 = new JCheckBox("A. Aswer A.");
@@ -132,7 +147,7 @@ public class RunningExam extends JFrame {
 		
 		JLabel lblQuestion2 = new JLabel("What ???");
 		lblQuestion2.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblQuestion2.setBounds(118, 118, 364, 90);
+		lblQuestion2.setBounds(25, 80, 500, 130);
 		panel2.add(lblQuestion2);
 		
 		JCheckBox checkBoxA2 = new JCheckBox("A. Aswer A.");
@@ -170,7 +185,7 @@ public class RunningExam extends JFrame {
 		
 		JLabel lblQuestion3 = new JLabel("What ???");
 		lblQuestion3.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblQuestion3.setBounds(118, 109, 364, 90);
+		lblQuestion3.setBounds(25, 80, 500, 130);
 		panel3.add(lblQuestion3);
 		
 		JCheckBox checkBoxA3 = new JCheckBox("A. Aswer A.");
@@ -208,7 +223,7 @@ public class RunningExam extends JFrame {
 		
 		JLabel lblQuestion4 = new JLabel("What ???");
 		lblQuestion4.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblQuestion4.setBounds(118, 109, 364, 90);
+		lblQuestion4.setBounds(25, 80, 500, 130);
 		panel4.add(lblQuestion4);
 		
 		JCheckBox checkBoxA4 = new JCheckBox("A. Aswer A.");
@@ -246,7 +261,7 @@ public class RunningExam extends JFrame {
 		
 		JLabel lblQuestion5 = new JLabel("What ???");
 		lblQuestion5.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblQuestion5.setBounds(118, 109, 364, 90);
+		lblQuestion5.setBounds(25, 80, 500, 130);
 		panel5.add(lblQuestion5);
 		
 		JCheckBox checkBoxA5 = new JCheckBox("A. Aswer A.");
@@ -284,7 +299,7 @@ public class RunningExam extends JFrame {
 		
 		JLabel lblQuestion6 = new JLabel("What ???");
 		lblQuestion6.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblQuestion6.setBounds(118, 109, 364, 90);
+		lblQuestion6.setBounds(25, 80, 500, 130);
 		panel6.add(lblQuestion6);
 		
 		JCheckBox checkBoxA6 = new JCheckBox("A. Aswer A.");
@@ -322,7 +337,7 @@ public class RunningExam extends JFrame {
 		
 		JLabel lblQuestion7 = new JLabel("What ???");
 		lblQuestion7.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblQuestion7.setBounds(118, 109, 364, 90);
+		lblQuestion7.setBounds(25, 80, 500, 130);
 		panel7.add(lblQuestion7);
 		
 		JCheckBox checkBoxA7 = new JCheckBox("A. Aswer A.");
@@ -360,7 +375,7 @@ public class RunningExam extends JFrame {
 		
 		JLabel lblQuestion8 = new JLabel("What ???");
 		lblQuestion8.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblQuestion8.setBounds(118, 109, 364, 90);
+		lblQuestion8.setBounds(25, 80, 500, 130);
 		panel8.add(lblQuestion8);
 		
 		JCheckBox checkBoxA8 = new JCheckBox("A. Aswer A.");
@@ -398,7 +413,7 @@ public class RunningExam extends JFrame {
 		
 		JLabel lblQuestion9 = new JLabel("What ???");
 		lblQuestion9.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblQuestion9.setBounds(118, 109, 364, 90);
+		lblQuestion9.setBounds(25, 80, 500, 130);
 		panel9.add(lblQuestion9);
 		
 		JCheckBox checkBoxA9 = new JCheckBox("A. Aswer A.");
@@ -436,7 +451,7 @@ public class RunningExam extends JFrame {
 		
 		JLabel lblQuestion10 = new JLabel("What ???");
 		lblQuestion10.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblQuestion10.setBounds(118, 109, 364, 90);
+		lblQuestion10.setBounds(25, 80, 500, 130);
 		panel10.add(lblQuestion10);
 		
 		JCheckBox checkBoxA10 = new JCheckBox("A. Aswer A.");
@@ -474,7 +489,7 @@ public class RunningExam extends JFrame {
 		
 		JLabel lblQuestion11 = new JLabel("What ???");
 		lblQuestion11.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblQuestion11.setBounds(118, 109, 364, 90);
+		lblQuestion11.setBounds(25, 80, 500, 130);
 		panel11.add(lblQuestion11);
 		
 		JCheckBox checkBoxA11 = new JCheckBox("A. Aswer A.");
@@ -512,7 +527,7 @@ public class RunningExam extends JFrame {
 		
 		JLabel lblQuestion12 = new JLabel("What ???");
 		lblQuestion12.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		lblQuestion12.setBounds(118, 109, 364, 90);
+		lblQuestion12.setBounds(25, 80, 500, 130);
 		panel12.add(lblQuestion12);
 		
 		JCheckBox checkBoxA12 = new JCheckBox("A. Aswer A.");
@@ -749,5 +764,56 @@ public class RunningExam extends JFrame {
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		label_2.setBounds(182, 309, 29, 29);
 		panel.add(label_2);
+		
+		//
+//		Get_Question getquestion = new Get_Question();
+//		Vector questionList =new Vector();
+//		questionList = getquestion.Get_Data_Question();
+	//	Question ch = (Question) questionList.get(0);
+//		Vector lblListQuestion = new Vector<JLabel>();
+//		lblListQuestion.addElement(lblQuestion1);
+//		lblListQuestion.addElement(lblQuestion2);
+//		lblListQuestion.addElement(lblQuestion3);
+//		lblQuestion1.setText("Which can you keep after gi\r\nving it to your friend?");
+//		for(int i= 0 ; i < 3 ; i++) {
+//			Question ch =(Question) questionList.get(i);
+//			JLabel lbl = (JLabel)lblListQuestion.get(i);
+//    		lbl.setText(ch.concept);
+////			System.out.println(ch.concept +"\n"+ch.Answer1 /*+" "+ ch.Answer2+" "+ch.Answer3+" "+ch.Answer4 */);
+//		}
 	}
+	
+//	public void createVector() {
+//	 	Vector lblListQuestion = new Vector<JLabel>();
+//		Vector lblListAnswer = new Vector<JLabel>();
+//		lblListQuestion.addElement(lblQuestion1);
+//		lblListQuestion.addElement(lblQuestion2);
+//		lblListQuestion.addElement(lblQuestion3);
+//		lblListQuestion.addElement(lblQuestion4);
+//		lblListQuestion.addElement(lblQuestion5);
+//		lblListQuestion.addElement(lblQuestion6);
+//		lblListQuestion.addElement(lblQuestion7);
+//		lblListQuestion.addElement(lblQuestion8);
+//		lblListQuestion.addElement(lblQuestion9);
+//		lblListQuestion.addElement(lblQuestion10);
+//		lblListQuestion.addElement(lblQuestion11);
+//		lblListQuestion.addElement(lblQuestion12);
+//		
+//	}
+	
+//	public void displayQuestion() {
+//		Get_Question getquestion = new Get_Question();
+//		Vector questionList =new Vector();
+//		questionList = getquestion.Get_Data_Question();
+//		Question ch = (Question) questionList.get(1);
+//		lblQuestion1.setText("adv");
+//		for(int i=0 ; i < questionList.size() ; i++) {
+//			Question ch =(Question) questionList.get(i);
+//			JLabel lbl = (JLabel)lblListQuestion.get(i);
+//			lbl.setText(ch.concept);
+			//System.out.println(ch.concept +"\n"+ch.Answer1 /*+" "+ ch.Answer2+" "+ch.Answer3+" "+ch.Answer4 */);
+//		}
+//	}
+	
+	
 }
