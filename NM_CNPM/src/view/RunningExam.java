@@ -23,8 +23,14 @@ import javax.swing.SwingConstants;
 
 import model.*;
 
-public class RunningExam extends JFrame {
+public class RunningExam extends JFrame implements Runnable {
 
+	public JLabel lbmin;
+	public JLabel lbsec;
+	public static int min=10;
+	public static int sec=0;
+	public static boolean boo=true;
+	
 	private JPanel contentPane;
 	public JPanel panelparent;
 	public JPanel panel1;
@@ -749,22 +755,22 @@ public class RunningExam extends JFrame {
 		lblTime.setBounds(35, 309, 95, 29);
 		panel.add(lblTime);
 		
-		JLabel label = new JLabel("00");
-		label.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		label.setBounds(145, 309, 29, 29);
-		panel.add(label);
+		lbmin = new JLabel("00");
+		lbmin.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lbmin.setBounds(145, 309, 29, 29);
+		panel.add(lbmin);
 		
-		JLabel label_1 = new JLabel("00");
-		label_1.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		label_1.setBounds(216, 309, 29, 29);
-		panel.add(label_1);
+		lbsec = new JLabel("00");
+		lbsec.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lbsec.setBounds(216, 309, 29, 29);
+		panel.add(lbsec);
 		
 		JLabel label_2 = new JLabel(":");
 		label_2.setFont(new Font("Times New Roman", Font.BOLD, 25));
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		label_2.setBounds(182, 309, 29, 29);
 		panel.add(label_2);
-		
+		setVisible(true);
 		//
 //		Get_Question getquestion = new Get_Question();
 //		Vector questionList =new Vector();
@@ -781,6 +787,23 @@ public class RunningExam extends JFrame {
 //    		lbl.setText(ch.concept);
 ////			System.out.println(ch.concept +"\n"+ch.Answer1 /*+" "+ ch.Answer2+" "+ch.Answer3+" "+ch.Answer4 */);
 //		}
+	}
+	public void run() {
+		while(boo==true) {
+			lbmin.setText(String.valueOf(min));
+			lbsec.setText(String.valueOf(sec));
+			if(sec==0) {
+				min--;
+				sec=59;
+			}else {
+				sec--;
+			}
+			try {
+				Thread.sleep(1000);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 //	public void createVector() {

@@ -123,9 +123,11 @@ public class Login extends JFrame implements ActionListener {
 	             int i =JOptionPane.showConfirmDialog(null, "Are you ready", "Bat dau",JOptionPane.YES_NO_OPTION );
 	             if ( i == JOptionPane.YES_OPTION ) {
 	        	 RunningExam running = new RunningExam();
-	        	 running.setVisible(true);
+	        	 running.setVisible(false);
 	        	// running.displayQuestion();
 			     this.setVisible(false);
+			     Thread t =new Thread(new RunningExam());
+			     t.start();
 		         }
 		    }
 			else {JOptionPane.showMessageDialog(null, "User name or password not true");}
