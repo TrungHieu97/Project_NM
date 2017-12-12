@@ -38,7 +38,7 @@ public class Login extends JFrame implements ActionListener {
 	private JTextField nameField;
 	private JPasswordField passwordField;
 	
-	private JButton btnLogin;
+	private JButton btnLoginStudent;
 	private JLabel LbLogin;
 
 	public static void main(String[] args) {
@@ -98,23 +98,33 @@ public class Login extends JFrame implements ActionListener {
 		lblPassword.setBounds(45, 208, 161, 31);
 		panel.add(lblPassword);
 		
-		btnLogin = new JButton("Login");
-		btnLogin.addActionListener(this);
-		btnLogin.setBackground(SystemColor.inactiveCaption);
-		btnLogin.setFont(new Font("Times New Roman", Font.PLAIN, 19));
-		btnLogin.setBounds(245, 281, 115, 29);
-		panel.add(btnLogin);
+		btnLoginStudent = new JButton("Student");
+		btnLoginStudent.addActionListener(this);
+		btnLoginStudent.setBackground(SystemColor.inactiveCaption);
+		btnLoginStudent.setFont(new Font("Times New Roman", Font.PLAIN, 19));
+		btnLoginStudent.setBounds(137, 281, 115, 29);
+		panel.add(btnLoginStudent);
 		
 		passwordField = new JPasswordField();
 		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		passwordField.setBounds(234, 203, 220, 42);
 		panel.add(passwordField);
+		
+		JButton btnLoginTeacher = new JButton("Teacher");
+		btnLoginTeacher.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnLoginTeacher.setFont(new Font("Times New Roman", Font.PLAIN, 19));
+		btnLoginTeacher.setBackground(SystemColor.inactiveCaption);
+		btnLoginTeacher.setBounds(359, 281, 115, 29);
+		panel.add(btnLoginTeacher);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton item = (JButton) e.getSource();
-		if(item == btnLogin){
+		if(item == btnLoginStudent){
 			String n = nameField.getText();
 			String p = String.valueOf(passwordField.getPassword());
 			Check_Login ck = new Check_Login();
