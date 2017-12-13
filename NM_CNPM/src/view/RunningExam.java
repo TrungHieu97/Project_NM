@@ -1,11 +1,17 @@
 package view;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.sun.org.apache.xpath.internal.functions.Function;
+
+import Manager.*;
+
 import javax.swing.JButton;
 import java.awt.CardLayout;
 import java.awt.Checkbox;
@@ -22,12 +28,16 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.Panel;
 import javax.swing.SwingConstants;
-
-import model.*;
 import sun.tools.jar.resources.jar;
+import java.lang.*;
 
-public class RunningExam extends JFrame {
+public class RunningExam extends JFrame implements Runnable {
 
+	public JLabel lbsec;
+	public JLabel lbmin;
+	public static int min=10;
+	public static int sec=0;
+	public static boolean checkclock=true;
 	private JPanel contentPane;
 	public JPanel panelparent;
 	public JPanel panel1;
@@ -825,15 +835,15 @@ public class RunningExam extends JFrame {
 		lblTime.setBounds(35, 309, 95, 29);
 		panel.add(lblTime);
 		
-		JLabel label = new JLabel("00");
-		label.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		label.setBounds(145, 309, 29, 29);
-		panel.add(label);
+		lbmin = new JLabel("00");
+		lbmin.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lbmin.setBounds(145, 309, 29, 29);
+		panel.add(lbmin);
 		
-		JLabel label_1 = new JLabel("00");
-		label_1.setFont(new Font("Times New Roman", Font.BOLD, 25));
-		label_1.setBounds(216, 309, 29, 29);
-		panel.add(label_1);
+		lbsec = new JLabel("00");
+		lbsec.setFont(new Font("Times New Roman", Font.BOLD, 25));
+		lbsec.setBounds(216, 309, 29, 29);
+		panel.add(lbsec);
 		
 		JLabel label_2 = new JLabel(":");
 		label_2.setFont(new Font("Times New Roman", Font.BOLD, 25));
@@ -1085,14 +1095,11 @@ public class RunningExam extends JFrame {
 		lblAnswerD12.setBounds(158, 446, 283, 29);
 		panel12.add(lblAnswerD12);
 		
-
-		Get_Question getquestion = new Get_Question();
-		Vector questionList =new Vector();
+		Vector questionList =new Vector<Question>();
 		Vector answerAList = new Vector<Checkbox>();
 		Vector answerBList = new Vector<Checkbox>();
 		Vector answerCList = new Vector<Checkbox>();
 		Vector answerDList = new Vector<Checkbox>();
-		questionList = getquestion.Get_Data_Question();
 
 		Vector lblListQuestion = new Vector<JLabel>();
 		lblListQuestion.addElement(lblQuestion1);
@@ -1163,6 +1170,9 @@ public class RunningExam extends JFrame {
 		answerDList.addElement(lblAnswerD11);
 		answerDList.addElement(lblAnswerD12);
 		
+		FunctionAccess functionaccess = new FunctionAccess();
+		questionList = functionaccess.getQuestion();
+		
 		for(int i= 0 ; i < 12 ; i++) {
 			Question ch =(Question) questionList.get(i);
 			JLabel lblQ = new JLabel();
@@ -1172,23 +1182,48 @@ public class RunningExam extends JFrame {
 			JLabel lblAD = new JLabel();
 			
 			lblQ = (JLabel) lblListQuestion.get(i);
-			lblQ.setText(ch.concept);
+			lblQ.setText(ch.ques);
 			
 			lblAA =(JLabel) answerAList.get(i);
-			lblAA.setText(ch.Answer1);
+			lblAA.setText(ch.ans1);
 			
 			lblAB =(JLabel) answerBList.get(i);
-			lblAB.setText(ch.Answer2);
+			lblAB.setText(ch.ans2);
 			
 			lblAC =(JLabel) answerCList.get(i);
-			lblAC.setText(ch.Answer3);
+			lblAC.setText(ch.ans3);
 			
 			lblAD =(JLabel) answerDList.get(i);
-			lblAD.setText(ch.Answer4);
+			lblAD.setText(ch.ans4);
 			
 				
 		   
 			
+		}
+		setVisible(true);
+	}
+	@Override
+	public void run() {
+		lbmin.setText(String.valueOf(min));
+		lbsec.setText(String.valueOf(sec));
+		while(checkclock==true) {
+			if(sec==0) {
+				min--;
+				sec=59;
+			}
+			else {
+				sec--;
+			}
+			if(sec==0&&min==0) {
+				checkclock=false;
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			lbmin.setText(String.valueOf(min));
+			lbsec.setText(String.valueOf(sec));
 		}
 	}
 }

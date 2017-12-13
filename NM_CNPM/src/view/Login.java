@@ -1,14 +1,15 @@
 package view;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Manager.CheckLogin;
 import javafx.scene.image.Image;
-import model.Check_Login;
 
 import java.awt.Color;
 import javax.swing.JTextField;
@@ -39,6 +40,7 @@ public class Login extends JFrame implements ActionListener {
 	private JPasswordField passwordField;
 	
 	private JButton btnLoginStudent;
+	public JButton btnLoginTeacher;
 	private JLabel LbLogin;
 
 	public static void main(String[] args) {
@@ -110,11 +112,8 @@ public class Login extends JFrame implements ActionListener {
 		passwordField.setBounds(234, 203, 220, 42);
 		panel.add(passwordField);
 		
-		JButton btnLoginTeacher = new JButton("Teacher");
-		btnLoginTeacher.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+		btnLoginTeacher = new JButton("Teacher");
+		btnLoginTeacher.addActionListener(this);
 		btnLoginTeacher.setFont(new Font("Times New Roman", Font.PLAIN, 19));
 		btnLoginTeacher.setBackground(SystemColor.inactiveCaption);
 		btnLoginTeacher.setBounds(359, 281, 115, 29);
@@ -123,23 +122,41 @@ public class Login extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		String n;
+		String p;
+		boolean check;
+		CheckLogin ck=new CheckLogin();
 		JButton item = (JButton) e.getSource();
 		if(item == btnLoginStudent){
-			String n = nameField.getText();
-			String p = String.valueOf(passwordField.getPassword());
-			Check_Login ck = new Check_Login();
-			boolean check = ck.check(n, p);
+			n = nameField.getText();
+			p = String.valueOf(passwordField.getPassword());
+			check= ck.check(2,n,p);
 			if (check) {
 	             int i =JOptionPane.showConfirmDialog(null, "Are you ready", "Bat dau",JOptionPane.YES_NO_OPTION );
 	             if ( i == JOptionPane.YES_OPTION ) {
 	        	 RunningExam running = new RunningExam();
-	        	 running.setVisible(true);
+	        	 running.setVisible(false);
 	        	// running.displayQuestion();
 			     this.setVisible(false);
+			     Thread t=new Thread(new RunningExam());
+			     t.start();
 		         }
+		    }
+			else {
+				JOptionPane.showMessageDialog(null,"Use or password not true");
+				}
+		}
+		if(item == btnLoginTeacher){
+			n = nameField.getText();
+			p = String.valueOf(passwordField.getPassword());
+			check = ck.check(1,n,p);
+			if (check) {
+	        	 Manager manager = new Manager();
+	        	 manager.setVisible(true);
+	        	// running.displayQuestion();
+			     this.setVisible(false);
 		    }
 			else {JOptionPane.showMessageDialog(null, "User name or password not true");}
 		}
-		
 	}
 }

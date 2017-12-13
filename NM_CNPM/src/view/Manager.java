@@ -120,6 +120,7 @@ public class Manager extends JFrame {
 		tableQuestion.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		tableQuestion.setBounds(15, 16, 668, 487);
 		panel2.add(tableQuestion);
+		setVisible(true);
 	}
 	
 	private Object[] loadColumnname() {
