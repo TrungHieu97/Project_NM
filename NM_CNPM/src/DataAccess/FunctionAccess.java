@@ -1,6 +1,8 @@
-package Manager;
+package DataAccess;
 import java.sql.*;
 import java.util.*;
+
+import Data.*;
 public class FunctionAccess {
 	public Vector<Question> getQuestion(){
 		Question ch;
@@ -53,8 +55,8 @@ public class FunctionAccess {
 		}
 		return new Vector<Question>(v);
 	}
-	public Vector<User> getInformationOfUser() {
-		Vector<User> v=new Vector<User>();
+	public Vector<Student> getInformationOfUser() {
+		Vector<Student> v=new Vector<Student>();
 		Connection cons=null;
 		Statement state=null;
 		ResultSet rs=null;
@@ -70,7 +72,7 @@ public class FunctionAccess {
 				name=rs.getString("name");
 				password=rs.getString("password");
 				mark = rs.getFloat("mark");
-				v.add(new User(name,password, mark));
+				v.add(new Student(name,password, mark));
 			}
 			rs.close();
 			state.close();
@@ -95,7 +97,7 @@ public class FunctionAccess {
 				se.printStackTrace();
 			}
 		}
-		return new Vector<User>(v);
+		return new Vector<Student>(v);
 	}
 	public void insertQuestion(int id,String ques,String ans1,String ans2,String ans3,String ans4) {
 		Connection cons=null;
@@ -252,11 +254,11 @@ public class FunctionAccess {
 			}
 		}
 		else {
-			Vector<User> v=new Vector<User>();
+			Vector<Student> v=new Vector<Student>();
 			v=new FunctionAccess().getInformationOfUser();
-			User u=null;
+			Student u=null;
 			for(int i=0;i<v.size();i++) {
-				u=(User)v.get(i);
+				u=(Student)v.get(i);
 				System.out.println(u.name+","+u.password);
 			}
 		}

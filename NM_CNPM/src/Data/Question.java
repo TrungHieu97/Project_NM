@@ -1,4 +1,4 @@
-package Manager;
+package Data;
 
 public class Question {
 	public int id;

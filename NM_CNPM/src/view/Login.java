@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Manager.CheckLogin;
+import DataAccess.*;
 import javafx.scene.image.Image;
 
 import java.awt.Color;
@@ -42,6 +42,10 @@ public class Login extends JFrame implements ActionListener {
 	private JButton btnLoginStudent;
 	public JButton btnLoginTeacher;
 	private JLabel LbLogin;
+	
+	public static String nameStudent;
+	
+	public RunningExam running;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -124,22 +128,28 @@ public class Login extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String n;
 		String p;
+		float m;
 		boolean check;
 		CheckLogin ck=new CheckLogin();
+		FunctionAccess f = new FunctionAccess();
+		
 		JButton item = (JButton) e.getSource();
 		if(item == btnLoginStudent){
 			n = nameField.getText();
+			nameStudent = n;
 			p = String.valueOf(passwordField.getPassword());
 			check= ck.check(2,n,p);
 			if (check) {
 	             int i =JOptionPane.showConfirmDialog(null, "Are you ready", "Bat dau",JOptionPane.YES_NO_OPTION );
 	             if ( i == JOptionPane.YES_OPTION ) {
-	        	 RunningExam running = new RunningExam();
+	        	 running = new RunningExam();
 	        	 running.setVisible(false);
-	        	// running.displayQuestion();
+	 
 			     this.setVisible(false);
 			     Thread t=new Thread(new RunningExam());
 			     t.start();
+			     m = running.getMark();
+			     f.updateUser(nameStudent, m);
 		         }
 		    }
 			else {

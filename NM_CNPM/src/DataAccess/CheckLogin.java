@@ -1,4 +1,4 @@
-package Manager;
+package DataAccess;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

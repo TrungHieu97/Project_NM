@@ -1,4 +1,4 @@
-package Manager;
+package DataAccess;
 import java.sql.*;
 public class ConnectDB {
 	public java.sql.Connection connect() {

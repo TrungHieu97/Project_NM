@@ -10,7 +10,8 @@ import javax.swing.border.EmptyBorder;
 
 import com.sun.org.apache.xpath.internal.functions.Function;
 
-import Manager.*;
+import Data.*;
+import DataAccess.*;
 
 import javax.swing.JButton;
 import java.awt.CardLayout;
@@ -35,7 +36,7 @@ public class RunningExam extends JFrame implements Runnable {
 
 	public JLabel lbsec;
 	public JLabel lbmin;
-	public static int min=10;
+	public static int min=1;
 	public static int sec=0;
 	public static boolean checkclock=true;
 	private JPanel contentPane;
@@ -132,6 +133,20 @@ public class RunningExam extends JFrame implements Runnable {
 	private final ButtonGroup buttonGroup10 = new ButtonGroup();
 	private final ButtonGroup buttonGroup11 = new ButtonGroup();
 	private final ButtonGroup buttonGroup12 = new ButtonGroup();
+	
+	public Checkbox checkBoxB1;
+	public Checkbox checkBoxB2;
+	public Checkbox checkBoxB3;
+	public Checkbox checkBoxB4;
+	public Checkbox checkBoxB5;
+	public Checkbox checkBoxB6;
+	public Checkbox checkBoxB7;
+	public Checkbox checkBoxB8;
+	public Checkbox checkBoxB9;
+	public Checkbox checkBoxB10;
+	public Checkbox checkBoxB11;
+	public Checkbox checkBoxB12;
+	
 	
 	public static int mark = 0;
 
@@ -707,27 +722,35 @@ public class RunningExam extends JFrame implements Runnable {
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-				if(buttonGroup1.getSelection().equals(checkBoxB1.getModel())) {mark++;}
-				if(buttonGroup2.getSelection().equals(checkBoxB2.getModel())) {mark++;}
-				if(buttonGroup3.getSelection().equals(checkBoxB3.getModel())) {mark++;}
-				if(buttonGroup4.getSelection().equals(checkBoxB4.getModel())) {mark++;}
-				if(buttonGroup5.getSelection().equals(checkBoxB5.getModel())) {mark++;}
-				if(buttonGroup6.getSelection().equals(checkBoxB6.getModel())) {mark++;}
-				if(buttonGroup7.getSelection().equals(checkBoxB7.getModel())) {mark++;}
-				if(buttonGroup8.getSelection().equals(checkBoxB8.getModel())) {mark++;}
-				if(buttonGroup9.getSelection().equals(checkBoxB9.getModel())) {mark++;}
-				if(buttonGroup10.getSelection().equals(checkBoxB10.getModel())) {mark++;}
-				if(buttonGroup11.getSelection().equals(checkBoxB11.getModel())) {mark++;}
-				if(buttonGroup12.getSelection().equals(checkBoxB12.getModel())) {mark++;}
-				}
-				catch(Exception ex) {
-					int d = JOptionPane.showConfirmDialog(null, "You haven't done the exam yet","Error", JOptionPane.YES_NO_OPTION);
-					if(d == JOptionPane.YES_OPTION) {
+					if(buttonGroup1.getSelection().equals(checkBoxB1.getModel())) {mark++;}
+					if(buttonGroup2.getSelection().equals(checkBoxB2.getModel())) {mark++;}
+					if(buttonGroup3.getSelection().equals(checkBoxB3.getModel())) {mark++;}
+					if(buttonGroup4.getSelection().equals(checkBoxB4.getModel())) {mark++;}
+					if(buttonGroup5.getSelection().equals(checkBoxB5.getModel())) {mark++;}
+					if(buttonGroup6.getSelection().equals(checkBoxB6.getModel())) {mark++;}
+					if(buttonGroup7.getSelection().equals(checkBoxB7.getModel())) {mark++;}
+					if(buttonGroup8.getSelection().equals(checkBoxB8.getModel())) {mark++;}
+					if(buttonGroup9.getSelection().equals(checkBoxB9.getModel())) {mark++;}
+					if(buttonGroup10.getSelection().equals(checkBoxB10.getModel())) {mark++;}
+					if(buttonGroup11.getSelection().equals(checkBoxB11.getModel())) {mark++;}
+					if(buttonGroup12.getSelection().equals(checkBoxB12.getModel())) {mark++;}
+					
+					int f = JOptionPane.showConfirmDialog(null, "Really ???","Notification", JOptionPane.YES_NO_OPTION);
+					if(f == JOptionPane.YES_OPTION) {
 						JOptionPane.showMessageDialog(null, "Your score is :" +mark);
+						setVisible(false);
 					}
-					else { mark = 0;}
 				}
-				
+					catch(Exception ex) {
+						int d = JOptionPane.showConfirmDialog(null, "You haven't done the exam yet","Error", JOptionPane.YES_NO_OPTION);
+						if(d == JOptionPane.YES_OPTION) {
+							JOptionPane.showMessageDialog(null, "Your score is :" +mark);
+							setVisible(false);
+						
+							
+						}
+						else { mark = 0;}
+					}
 				
 			}
 		});
@@ -1095,6 +1118,8 @@ public class RunningExam extends JFrame implements Runnable {
 		lblAnswerD12.setBounds(158, 446, 283, 29);
 		panel12.add(lblAnswerD12);
 		
+		
+		// Vector of answer, vector of question
 		Vector questionList =new Vector<Question>();
 		Vector answerAList = new Vector<Checkbox>();
 		Vector answerBList = new Vector<Checkbox>();
@@ -1196,9 +1221,6 @@ public class RunningExam extends JFrame implements Runnable {
 			lblAD =(JLabel) answerDList.get(i);
 			lblAD.setText(ch.ans4);
 			
-				
-		   
-			
 		}
 		setVisible(true);
 	}
@@ -1209,13 +1231,15 @@ public class RunningExam extends JFrame implements Runnable {
 		while(checkclock==true) {
 			if(sec==0) {
 				min--;
-				sec=59;
+				sec=5;
 			}
 			else {
 				sec--;
 			}
 			if(sec==0&&min==0) {
 				checkclock=false;
+				JOptionPane.showMessageDialog(null, "Time out, press Submit");
+
 			}
 			try {
 				Thread.sleep(1000);
@@ -1226,4 +1250,9 @@ public class RunningExam extends JFrame implements Runnable {
 			lbsec.setText(String.valueOf(sec));
 		}
 	}
+	
+	public float getMark() {
+		return mark;
+	}
+	
 }
