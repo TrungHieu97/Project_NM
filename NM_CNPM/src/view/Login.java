@@ -1,14 +1,15 @@
 package view;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import DataAccess.*;
 import javafx.scene.image.Image;
-import model.Check_Login;
 
 import java.awt.Color;
 import javax.swing.JTextField;
@@ -38,8 +39,13 @@ public class Login extends JFrame implements ActionListener {
 	private JTextField nameField;
 	private JPasswordField passwordField;
 	
-	private JButton btnLogin;
+	private JButton btnLoginStudent;
+	public JButton btnLoginTeacher;
 	private JLabel LbLogin;
+	
+	public static String nameStudent;
+	
+	public RunningExam running;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -98,40 +104,78 @@ public class Login extends JFrame implements ActionListener {
 		lblPassword.setBounds(45, 208, 161, 31);
 		panel.add(lblPassword);
 		
-		btnLogin = new JButton("Login");
-		btnLogin.addActionListener(this);
-		btnLogin.setBackground(SystemColor.inactiveCaption);
-		btnLogin.setFont(new Font("Times New Roman", Font.PLAIN, 19));
-		btnLogin.setBounds(245, 281, 115, 29);
-		panel.add(btnLogin);
+		btnLoginStudent = new JButton("Student");
+		btnLoginStudent.addActionListener(this);
+		btnLoginStudent.setBackground(SystemColor.inactiveCaption);
+		btnLoginStudent.setFont(new Font("Times New Roman", Font.PLAIN, 19));
+		btnLoginStudent.setBounds(137, 281, 115, 29);
+		panel.add(btnLoginStudent);
 		
 		passwordField = new JPasswordField();
 		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		passwordField.setBounds(234, 203, 220, 42);
 		panel.add(passwordField);
+		
+		btnLoginTeacher = new JButton("Teacher");
+		btnLoginTeacher.addActionListener(this);
+		btnLoginTeacher.setFont(new Font("Times New Roman", Font.PLAIN, 19));
+		btnLoginTeacher.setBackground(SystemColor.inactiveCaption);
+		btnLoginTeacher.setBounds(359, 281, 115, 29);
+		panel.add(btnLoginTeacher);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		String n;
+		String p;
+		float m;
+		boolean check;
+		CheckLogin ck=new CheckLogin();
+		FunctionAccess f = new FunctionAccess();
+		
 		JButton item = (JButton) e.getSource();
-		if(item == btnLogin){
-			String n = nameField.getText();
-			String p = String.valueOf(passwordField.getPassword());
-			Check_Login ck = new Check_Login();
-			boolean check = ck.check(n, p);
+		if(item == btnLoginStudent){
+			n = nameField.getText();
+			nameStudent = n;
+			p = String.valueOf(passwordField.getPassword());
+			check= ck.check(2,n,p);
 			if (check) {
 	             int i =JOptionPane.showConfirmDialog(null, "Are you ready", "Bat dau",JOptionPane.YES_NO_OPTION );
 	             if ( i == JOptionPane.YES_OPTION ) {
+<<<<<<< HEAD
 	        	 RunningExam running = new RunningExam();
 	        	 running.setVisible(false);
 	        	// running.displayQuestion();
 			     this.setVisible(false);
 			     Thread t =new Thread(new RunningExam());
 			     t.start();
+=======
+	        	 running = new RunningExam();
+	        	 running.setVisible(false);
+	 
+			     this.setVisible(false);
+			     Thread t=new Thread(new RunningExam());
+			     t.start();
+			     m = running.getMark();
+			     f.updateUser(nameStudent, m);
+>>>>>>> a61b101ffb499349b8a2c846c3ae483e6676d1bd
 		         }
+		    }
+			else {
+				JOptionPane.showMessageDialog(null,"Use or password not true");
+				}
+		}
+		if(item == btnLoginTeacher){
+			n = nameField.getText();
+			p = String.valueOf(passwordField.getPassword());
+			check = ck.check(1,n,p);
+			if (check) {
+	        	 Manager manager = new Manager();
+	        	 manager.setVisible(true);
+	        	// running.displayQuestion();
+			     this.setVisible(false);
 		    }
 			else {JOptionPane.showMessageDialog(null, "User name or password not true");}
 		}
-		
 	}
 }
