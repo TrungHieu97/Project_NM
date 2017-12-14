@@ -100,6 +100,10 @@ public class FunctionAccess {
 		return new Vector<Student>(v);
 	}
 	public void insertQuestion(int id,String ques,String ans1,String ans2,String ans3,String ans4) {
+		if(id==0||ques==""||ans1==""||ans2==""||ans3==""||ans4=="") {
+			JOptionPane.showMessageDialog(new JOptionPane("error data"), "error");
+			return;
+		}
 		Connection cons=null;
 		ResultSet rs=null;
 		Statement state =null;
@@ -110,7 +114,7 @@ public class FunctionAccess {
 			state=(Statement) cons.createStatement();
 			rs=state.executeQuery("select * from question;");
 			while(rs.next()) {
-				if(ques.equals(rs.getString("ques"))) {
+				if(ques.equals(rs.getString("ques"))||id==rs.getInt("id")) {
 					System.out.println("cau hoi da ton tai");
 					return;
 				}
@@ -141,6 +145,11 @@ public class FunctionAccess {
 		}
 	}
 	public void insertUser(String name,String password) {
+		if(name==""||password=="") {
+			JOptionPane option=new JOptionPane();
+			option.showMessageDialog(option, "error");
+			return;
+		}
 		Connection cons=null;
 		ResultSet rs=null;
 		Statement state =null;
@@ -182,6 +191,10 @@ public class FunctionAccess {
 		}
 	}
 	public void deleteQuestion(int id) {
+		if(id==0) {
+			JOptionPane.showMessageDialog(new JOptionPane("error data"), "error");
+			return;
+		}
 		Connection cons=null;
 		Statement state=null;
 		cons=new ConnectDB().connect();
@@ -213,6 +226,11 @@ public class FunctionAccess {
 		}
 	}
 	public void deleteUser(String username) {
+		if(username=="") {
+			JOptionPane option=new JOptionPane();
+			option.showMessageDialog(option, "error");
+			return;
+		}
 		Connection cons=null;
 		Statement state=null;
 		cons=new ConnectDB().connect();

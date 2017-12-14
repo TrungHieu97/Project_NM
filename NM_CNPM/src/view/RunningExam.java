@@ -32,6 +32,18 @@ import javax.swing.SwingConstants;
 import sun.tools.jar.resources.jar;
 import java.lang.*;
 
+<<<<<<< HEAD
+import model.*;
+
+public class RunningExam extends JFrame implements Runnable {
+
+	public JLabel lbmin;
+	public JLabel lbsec;
+	public static int min=10;
+	public static int sec=0;
+	public static boolean boo=true;
+	
+=======
 public class RunningExam extends JFrame implements Runnable {
 
 	public JLabel lbsec;
@@ -39,6 +51,7 @@ public class RunningExam extends JFrame implements Runnable {
 	public static int min=10;
 	public static int sec=0;
 	public static boolean checkclock=true;
+>>>>>>> a61b101ffb499349b8a2c846c3ae483e6676d1bd
 	private JPanel contentPane;
 	public JPanel panelparent;
 	public JPanel panel1;
@@ -873,8 +886,64 @@ public class RunningExam extends JFrame implements Runnable {
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		label_2.setBounds(182, 309, 29, 29);
 		panel.add(label_2);
+<<<<<<< HEAD
+		setVisible(true);
+		//
+//		Get_Question getquestion = new Get_Question();
+//		Vector questionList =new Vector();
+//		questionList = getquestion.Get_Data_Question();
+	//	Question ch = (Question) questionList.get(0);
+//		Vector lblListQuestion = new Vector<JLabel>();
+//		lblListQuestion.addElement(lblQuestion1);
+//		lblListQuestion.addElement(lblQuestion2);
+//		lblListQuestion.addElement(lblQuestion3);
+//		lblQuestion1.setText("Which can you keep after gi\r\nving it to your friend?");
+//		for(int i= 0 ; i < 3 ; i++) {
+//			Question ch =(Question) questionList.get(i);
+//			JLabel lbl = (JLabel)lblListQuestion.get(i);
+//    		lbl.setText(ch.concept);
+////			System.out.println(ch.concept +"\n"+ch.Answer1 /*+" "+ ch.Answer2+" "+ch.Answer3+" "+ch.Answer4 */);
+//		}
+	}
+	public void run() {
+		while(boo==true) {
+			lbmin.setText(String.valueOf(min));
+			lbsec.setText(String.valueOf(sec));
+			if(sec==0) {
+				min--;
+				sec=59;
+			}else {
+				sec--;
+			}
+			try {
+				Thread.sleep(1000);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+//	public void createVector() {
+//	 	Vector lblListQuestion = new Vector<JLabel>();
+//		Vector lblListAnswer = new Vector<JLabel>();
+//		lblListQuestion.addElement(lblQuestion1);
+//		lblListQuestion.addElement(lblQuestion2);
+//		lblListQuestion.addElement(lblQuestion3);
+//		lblListQuestion.addElement(lblQuestion4);
+//		lblListQuestion.addElement(lblQuestion5);
+//		lblListQuestion.addElement(lblQuestion6);
+//		lblListQuestion.addElement(lblQuestion7);
+//		lblListQuestion.addElement(lblQuestion8);
+//		lblListQuestion.addElement(lblQuestion9);
+//		lblListQuestion.addElement(lblQuestion10);
+//		lblListQuestion.addElement(lblQuestion11);
+//		lblListQuestion.addElement(lblQuestion12);
+//		
+//	}
+=======
 		
 
+>>>>>>> a61b101ffb499349b8a2c846c3ae483e6676d1bd
 	
 		
 		JLabel lblAnswerA1 = new JLabel("New label");
