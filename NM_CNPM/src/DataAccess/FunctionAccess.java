@@ -268,7 +268,7 @@ public class FunctionAccess {
 		Statement state=null;
 		cons=new ConnectDB().connect();
 		String str1="update user set mark="+mark+"where name=\""+name+"\";";
-		System.out.println(str1);
+		//System.out.println(str1);
 		try {
 			state=(Statement) cons.createStatement();
 			state.executeUpdate(str1);

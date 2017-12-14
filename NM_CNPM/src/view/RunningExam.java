@@ -36,7 +36,7 @@ public class RunningExam extends JFrame implements Runnable {
 
 	public JLabel lbsec;
 	public JLabel lbmin;
-	public static int min=1;
+	public static int min=10;
 	public static int sec=0;
 	public static boolean checkclock=true;
 	private JPanel contentPane;
@@ -1231,7 +1231,7 @@ public class RunningExam extends JFrame implements Runnable {
 		while(checkclock==true) {
 			if(sec==0) {
 				min--;
-				sec=5;
+				sec=59;
 			}
 			else {
 				sec--;

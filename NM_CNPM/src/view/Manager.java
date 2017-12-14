@@ -13,24 +13,39 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.CardLayout;
 import javax.swing.JTable;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import com.sun.corba.se.spi.oa.OADefault;
 
+import Data.TableValues;
+import DataAccess.FunctionAccess;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class Manager extends JFrame {
 
 	private JPanel contentPane;
-	private JTable tableStudent;
 	
 	public JPanel panelparent;
 	public JPanel panel1;
 	public JPanel panel2;
 	public JPanel panel_3;
+	
 	private JTable tableQuestion;
+	private JTable tableStudent;
+	
+	private JTextField tfName;
+	private JTextField tfPass;
+	
+	public TableValues tb;
+	
 
 	/**
 	 * Launch the application.
@@ -103,13 +118,71 @@ public class Manager extends JFrame {
 		panelparent.add(panel1, "panel1");
 		panel1.setLayout(null);
 		
-		String[] columnname = {"Name" , "Mark"};
-		String[][] data = {};
+		String[] columnname = {"NAME" , "MARK"};
 		
-		tableStudent = new JTable();
+		
+		tb = new TableValues();
+		tb.getStudent();
+		
+		JButton btnAddStudent = new JButton("ADD");
+		btnAddStudent.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if((tfName != null) && (tfPass != null)) {
+					FunctionAccess f = new FunctionAccess();
+					f.insertUser(tfName.getText(), tfPass.getText());
+					DefaultTableModel df = (DefaultTableModel) tableStudent.getModel();
+					df.addRow(new Object[]{tfName.getText(), "0"});
+					
+				}
+				else {JOptionPane.showMessageDialog(null, "Name or Password is blank");}
+			}
+		});
+		btnAddStudent.setBackground(SystemColor.inactiveCaption);
+		btnAddStudent.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		btnAddStudent.setBounds(628, 30, 128, 43);
+		panel1.add(btnAddStudent);
+		
+		JButton btnDeleteStudent = new JButton("DELETE");
+		btnDeleteStudent.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnDeleteStudent.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		btnDeleteStudent.setBackground(SystemColor.inactiveCaption);
+		btnDeleteStudent.setBounds(628, 110, 128, 43);
+		panel1.add(btnDeleteStudent);
+		
+		JScrollPane scrollPane1 = new JScrollPane();
+		scrollPane1.setBounds(15, 163, 575, 326);
+		panel1.add(scrollPane1);
+		
+		tableStudent = new JTable(new DefaultTableModel(tb.values,columnname));
+		tableStudent.setFillsViewportHeight(true);
+		tableStudent.setRowSelectionAllowed(false);
 		tableStudent.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		tableStudent.setBounds(15, 16, 565, 464);
-		panel1.add(tableStudent);
+		scrollPane1.setViewportView(tableStudent);
+		
+		JLabel lblName = new JLabel("Name");
+		lblName.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblName.setBounds(15, 16, 90, 43);
+		panel1.add(lblName);
+		
+		tfName = new JTextField();
+		tfName.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		tfName.setBounds(123, 16, 227, 43);
+		panel1.add(tfName);
+		tfName.setColumns(10);
+		
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblPassword.setBounds(15, 75, 90, 43);
+		panel1.add(lblPassword);
+		
+		tfPass = new JTextField();
+		tfPass.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		tfPass.setColumns(10);
+		tfPass.setBounds(123, 75, 227, 43);
+		panel1.add(tfPass);
 		
 	    panel2 = new JPanel();
 		panelparent.add(panel2, "panel2");
@@ -118,8 +191,20 @@ public class Manager extends JFrame {
 		
 		tableQuestion = new JTable();
 		tableQuestion.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		tableQuestion.setBounds(15, 16, 668, 487);
+		tableQuestion.setBounds(15, 16, 605, 487);
 		panel2.add(tableQuestion);
+		
+		JButton btnAddQues = new JButton("ADD");
+		btnAddQues.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		btnAddQues.setBackground(SystemColor.inactiveCaption);
+		btnAddQues.setBounds(635, 28, 128, 43);
+		panel2.add(btnAddQues);
+		
+		JButton btnDeleteQues = new JButton("DELETE");
+		btnDeleteQues.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		btnDeleteQues.setBackground(SystemColor.inactiveCaption);
+		btnDeleteQues.setBounds(635, 103, 128, 43);
+		panel2.add(btnDeleteQues);
 		setVisible(true);
 	}
 	
