@@ -105,7 +105,7 @@ public class FunctionAccess {
 		Statement state =null;
 		cons=new ConnectDB().connect();
 		String str1="insert into question (id,ques,ans1,ans2,ans3,ans4) values (";
-		str1=str1+id+",\""+ques+"\""+",\""+ans1+"\""+",\""+ans2+"\""+",\""+ans3+"\""+",\""+ans4+"\");";
+		str1=str1+1+",\""+ques+"\""+",\""+ans1+"\""+",\""+ans2+"\""+",\""+ans3+"\""+",\""+ans4+"\");";
 		try {
 			state=(Statement) cons.createStatement();
 			rs=state.executeQuery("select * from question;");
@@ -181,11 +181,11 @@ public class FunctionAccess {
 			}
 		}
 	}
-	public void deleteQuestion(int id) {
+	public void deleteQuestion(String question) {
 		Connection cons=null;
 		Statement state=null;
 		cons=new ConnectDB().connect();
-		String str1="delete from question where id="+id+";";
+		String str1="delete from question where ques =\""+question+"\";";
 		try {
 			state=(Statement) cons.createStatement();
 			state.executeUpdate(str1);
