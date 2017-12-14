@@ -142,14 +142,6 @@ public class Login extends JFrame implements ActionListener {
 			if (check) {
 	             int i =JOptionPane.showConfirmDialog(null, "Are you ready", "Bat dau",JOptionPane.YES_NO_OPTION );
 	             if ( i == JOptionPane.YES_OPTION ) {
-<<<<<<< HEAD
-	        	 RunningExam running = new RunningExam();
-	        	 running.setVisible(false);
-	        	// running.displayQuestion();
-			     this.setVisible(false);
-			     Thread t =new Thread(new RunningExam());
-			     t.start();
-=======
 	        	 running = new RunningExam();
 	        	 running.setVisible(false);
 	 
@@ -158,7 +150,6 @@ public class Login extends JFrame implements ActionListener {
 			     t.start();
 			     m = running.getMark();
 			     f.updateUser(nameStudent, m);
->>>>>>> a61b101ffb499349b8a2c846c3ae483e6676d1bd
 		         }
 		    }
 			else {

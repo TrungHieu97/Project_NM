@@ -7,7 +7,6 @@ import java.sql.Statement;
 
 public class CheckLogin {
 	public boolean check(int x,String str1,String str2){
-		if(str1==""||str2=="") return false;
 		boolean boo=false;
 		Connection cons=null;
 		Statement state=null;

@@ -124,14 +124,17 @@ public class Manager extends JFrame {
 		tb = new TableValues();
 		tb.getStudent();
 		
+		// Add account student
 		JButton btnAddStudent = new JButton("ADD");
 		btnAddStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if((tfName != null) && (tfPass != null)) {
+				String n = tfName.getText();
+				String p = tfPass.getText();
+				if(!(n.trim().equals("")) && !(p.trim().equals(""))) {
 					FunctionAccess f = new FunctionAccess();
-					f.insertUser(tfName.getText(), tfPass.getText());
+					f.insertUser(n,p);
 					DefaultTableModel df = (DefaultTableModel) tableStudent.getModel();
-					df.addRow(new Object[]{tfName.getText(), "0"});
+					df.addRow(new Object[]{n, "0"});
 					
 				}
 				else {JOptionPane.showMessageDialog(null, "Name or Password is blank");}
@@ -142,9 +145,24 @@ public class Manager extends JFrame {
 		btnAddStudent.setBounds(628, 30, 128, 43);
 		panel1.add(btnAddStudent);
 		
+		// Delete account student
 		JButton btnDeleteStudent = new JButton("DELETE");
 		btnDeleteStudent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				DefaultTableModel df = (DefaultTableModel) tableStudent.getModel();
+				if(tableStudent.getSelectedRow() == -1) {
+					if(tableStudent.getRowCount() == 0) {
+						JOptionPane.showMessageDialog(null, "Table is empty");
+					}
+					else { JOptionPane.showMessageDialog(null, "You must select a account");}
+				}
+				else {
+					String n = (String) df.getValueAt(tableStudent.getSelectedRow(),0);
+					Float p = (Float) df.getValueAt(tableStudent.getSelectedRow(), 1);
+					df.removeRow(tableStudent.getSelectedRow());
+					FunctionAccess f = new FunctionAccess();
+					f.deleteUser(n);
+				}
 			}
 		});
 		btnDeleteStudent.setFont(new Font("Times New Roman", Font.PLAIN, 20));
@@ -158,7 +176,6 @@ public class Manager extends JFrame {
 		
 		tableStudent = new JTable(new DefaultTableModel(tb.values,columnname));
 		tableStudent.setFillsViewportHeight(true);
-		tableStudent.setRowSelectionAllowed(false);
 		tableStudent.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		scrollPane1.setViewportView(tableStudent);
 		
