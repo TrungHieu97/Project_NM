@@ -7,6 +7,7 @@ import java.sql.Statement;
 
 public class CheckLogin {
 	public boolean check(int x,String str1,String str2){
+		System.out.println(str2+str1+x);
 		boolean boo=false;
 		Connection cons=null;
 		Statement state=null;

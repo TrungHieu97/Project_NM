@@ -173,7 +173,7 @@ public class RunningExam extends JFrame implements Runnable {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panelparent = new JPanel();
+		final JPanel panelparent = new JPanel();
 		panelparent.setBounds(348, 16, 565, 520);
 		contentPane.add(panelparent);
 		panelparent.setLayout(new CardLayout(0, 0));
@@ -199,19 +199,19 @@ public class RunningExam extends JFrame implements Runnable {
 		checkBoxA1.setBounds(117, 246, 34, 29);
 		panel1.add(checkBoxA1);
 		
-		JCheckBox checkBoxB1 = new JCheckBox("");
+		final JCheckBox checkBoxB1 = new JCheckBox("");
 		checkBoxB1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		buttonGroup1.add(checkBoxB1);
 		checkBoxB1.setBounds(117, 313, 34, 29);
 		panel1.add(checkBoxB1);
 		
-		JCheckBox checkBoxC1 = new JCheckBox("");
+		final JCheckBox checkBoxC1 = new JCheckBox("");
 		checkBoxC1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		buttonGroup1.add(checkBoxC1);
 		checkBoxC1.setBounds(118, 380, 33, 29);
 		panel1.add(checkBoxC1);
 		
-		JCheckBox checkBoxD1 = new JCheckBox("");
+		final JCheckBox checkBoxD1 = new JCheckBox("");
 		checkBoxD1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		buttonGroup1.add(checkBoxD1);
 		checkBoxD1.setBounds(118, 447, 34, 29);
@@ -231,25 +231,25 @@ public class RunningExam extends JFrame implements Runnable {
 		lblQuestion2.setBounds(25, 80, 500, 130);
 		panel2.add(lblQuestion2);
 		
-		JCheckBox checkBoxA2 = new JCheckBox("");
+		final JCheckBox checkBoxA2 = new JCheckBox("");
 		buttonGroup2.add(checkBoxA2);
 		checkBoxA2.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxA2.setBounds(118, 246, 29, 29);
 		panel2.add(checkBoxA2);
 		
-		JCheckBox checkBoxB2 = new JCheckBox("");
+		final JCheckBox checkBoxB2 = new JCheckBox("");
 		buttonGroup2.add(checkBoxB2);
 		checkBoxB2.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxB2.setBounds(118, 313, 29, 29);
 		panel2.add(checkBoxB2);
 		
-		JCheckBox checkBoxC2 = new JCheckBox("");
+		final JCheckBox checkBoxC2 = new JCheckBox("");
 		buttonGroup2.add(checkBoxC2);
 		checkBoxC2.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxC2.setBounds(118, 380, 29, 29);
 		panel2.add(checkBoxC2);
 		
-		JCheckBox checkBoxD2 = new JCheckBox("");
+		final JCheckBox checkBoxD2 = new JCheckBox("");
 		buttonGroup2.add(checkBoxD2);
 		checkBoxD2.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxD2.setBounds(118, 447, 29, 29);
@@ -269,25 +269,25 @@ public class RunningExam extends JFrame implements Runnable {
 		lblQuestion3.setBounds(25, 80, 500, 130);
 		panel3.add(lblQuestion3);
 		
-		JCheckBox checkBoxA3 = new JCheckBox("");
+		final JCheckBox checkBoxA3 = new JCheckBox("");
 		buttonGroup3.add(checkBoxA3);
 		checkBoxA3.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxA3.setBounds(118, 239, 29, 29);
 		panel3.add(checkBoxA3);
 		
-		JCheckBox checkBoxB3 = new JCheckBox("");
+		final JCheckBox checkBoxB3 = new JCheckBox("");
 		buttonGroup3.add(checkBoxB3);
 		checkBoxB3.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxB3.setBounds(118, 308, 29, 29);
 		panel3.add(checkBoxB3);
 		
-		JCheckBox checkBoxC3 = new JCheckBox("");
+		final JCheckBox checkBoxC3 = new JCheckBox("");
 		buttonGroup3.add(checkBoxC3);
 		checkBoxC3.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxC3.setBounds(118, 377, 29, 29);
 		panel3.add(checkBoxC3);
 		
-		JCheckBox checkBoxD3 = new JCheckBox("");
+		final JCheckBox checkBoxD3 = new JCheckBox("");
 		buttonGroup3.add(checkBoxD3);
 		checkBoxD3.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxD3.setBounds(118, 446, 29, 29);
@@ -307,25 +307,25 @@ public class RunningExam extends JFrame implements Runnable {
 		lblQuestion4.setBounds(25, 80, 500, 130);
 		panel4.add(lblQuestion4);
 		
-		JCheckBox checkBoxA4 = new JCheckBox("");
+		final JCheckBox checkBoxA4 = new JCheckBox("");
 		buttonGroup4.add(checkBoxA4);
 		checkBoxA4.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxA4.setBounds(118, 239, 29, 29);
 		panel4.add(checkBoxA4);
 		
-		JCheckBox checkBoxB4 = new JCheckBox("");
+		final JCheckBox checkBoxB4 = new JCheckBox("");
 		buttonGroup4.add(checkBoxB4);
 		checkBoxB4.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxB4.setBounds(118, 308, 29, 29);
 		panel4.add(checkBoxB4);
 		
-		JCheckBox checkBoxC4 = new JCheckBox("");
+		final JCheckBox checkBoxC4 = new JCheckBox("");
 		buttonGroup4.add(checkBoxC4);
 		checkBoxC4.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxC4.setBounds(118, 377, 29, 29);
 		panel4.add(checkBoxC4);
 		
-		JCheckBox checkBoxD4 = new JCheckBox("");
+		final JCheckBox checkBoxD4 = new JCheckBox("");
 		buttonGroup4.add(checkBoxD4);
 		checkBoxD4.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxD4.setBounds(118, 446, 29, 29);
@@ -345,25 +345,25 @@ public class RunningExam extends JFrame implements Runnable {
 		lblQuestion5.setBounds(25, 80, 500, 130);
 		panel5.add(lblQuestion5);
 		
-		JCheckBox checkBoxA5 = new JCheckBox("");
+		final JCheckBox checkBoxA5 = new JCheckBox("");
 		buttonGroup5.add(checkBoxA5);
 		checkBoxA5.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxA5.setBounds(118, 239, 29, 29);
 		panel5.add(checkBoxA5);
 		
-		JCheckBox checkBoxB5 = new JCheckBox("");
+		final JCheckBox checkBoxB5 = new JCheckBox("");
 		buttonGroup5.add(checkBoxB5);
 		checkBoxB5.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxB5.setBounds(118, 308, 29, 29);
 		panel5.add(checkBoxB5);
 		
-		JCheckBox checkBoxC5 = new JCheckBox("");
+		final JCheckBox checkBoxC5 = new JCheckBox("");
 		buttonGroup5.add(checkBoxC5);
 		checkBoxC5.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxC5.setBounds(118, 377, 29, 29);
 		panel5.add(checkBoxC5);
 		
-		JCheckBox checkBoxD5 = new JCheckBox("");
+		final JCheckBox checkBoxD5 = new JCheckBox("");
 		buttonGroup5.add(checkBoxD5);
 		checkBoxD5.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxD5.setBounds(118, 446, 29, 29);
@@ -383,25 +383,25 @@ public class RunningExam extends JFrame implements Runnable {
 		lblQuestion6.setBounds(25, 80, 500, 130);
 		panel6.add(lblQuestion6);
 		
-		JCheckBox checkBoxA6 = new JCheckBox("");
+		final JCheckBox checkBoxA6 = new JCheckBox("");
 		buttonGroup6.add(checkBoxA6);
 		checkBoxA6.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxA6.setBounds(118, 239, 29, 29);
 		panel6.add(checkBoxA6);
 		
-		JCheckBox checkBoxB6 = new JCheckBox("");
+		final JCheckBox checkBoxB6 = new JCheckBox("");
 		buttonGroup6.add(checkBoxB6);
 		checkBoxB6.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxB6.setBounds(118, 308, 29, 29);
 		panel6.add(checkBoxB6);
 		
-		JCheckBox checkBoxC6 = new JCheckBox("");
+		final JCheckBox checkBoxC6 = new JCheckBox("");
 		buttonGroup6.add(checkBoxC6);
 		checkBoxC6.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxC6.setBounds(118, 377, 29, 29);
 		panel6.add(checkBoxC6);
 		
-		JCheckBox checkBoxD6 = new JCheckBox("");
+		final JCheckBox checkBoxD6 = new JCheckBox("");
 		buttonGroup6.add(checkBoxD6);
 		checkBoxD6.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxD6.setBounds(118, 446, 29, 29);
@@ -421,25 +421,25 @@ public class RunningExam extends JFrame implements Runnable {
 		lblQuestion7.setBounds(25, 80, 500, 130);
 		panel7.add(lblQuestion7);
 		
-		JCheckBox checkBoxA7 = new JCheckBox("");
+		final JCheckBox checkBoxA7 = new JCheckBox("");
 		buttonGroup7.add(checkBoxA7);
 		checkBoxA7.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxA7.setBounds(118, 239, 29, 29);
 		panel7.add(checkBoxA7);
 		
-		JCheckBox checkBoxB7 = new JCheckBox("");
+		final JCheckBox checkBoxB7 = new JCheckBox("");
 		buttonGroup7.add(checkBoxB7);
 		checkBoxB7.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxB7.setBounds(118, 308, 29, 29);
 		panel7.add(checkBoxB7);
 		
-		JCheckBox checkBoxC7 = new JCheckBox("");
+		final JCheckBox checkBoxC7 = new JCheckBox("");
 		buttonGroup7.add(checkBoxC7);
 		checkBoxC7.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxC7.setBounds(118, 377, 29, 29);
 		panel7.add(checkBoxC7);
 		
-		JCheckBox checkBoxD7 = new JCheckBox("");
+		final JCheckBox checkBoxD7 = new JCheckBox("");
 		buttonGroup7.add(checkBoxD7);
 		checkBoxD7.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxD7.setBounds(118, 446, 29, 29);
@@ -459,25 +459,25 @@ public class RunningExam extends JFrame implements Runnable {
 		lblQuestion8.setBounds(25, 80, 500, 130);
 		panel8.add(lblQuestion8);
 		
-		JCheckBox checkBoxA8 = new JCheckBox("");
+		final JCheckBox checkBoxA8 = new JCheckBox("");
 		buttonGroup8.add(checkBoxA8);
 		checkBoxA8.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxA8.setBounds(118, 239, 29, 29);
 		panel8.add(checkBoxA8);
 		
-		JCheckBox checkBoxB8 = new JCheckBox("");
+		final JCheckBox checkBoxB8 = new JCheckBox("");
 		buttonGroup8.add(checkBoxB8);
 		checkBoxB8.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxB8.setBounds(118, 308, 29, 29);
 		panel8.add(checkBoxB8);
 		
-		JCheckBox checkBoxC8 = new JCheckBox("");
+		final JCheckBox checkBoxC8 = new JCheckBox("");
 		buttonGroup8.add(checkBoxC8);
 		checkBoxC8.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxC8.setBounds(118, 377, 29, 29);
 		panel8.add(checkBoxC8);
 		
-		JCheckBox checkBoxD8 = new JCheckBox("");
+		final JCheckBox checkBoxD8 = new JCheckBox("");
 		buttonGroup8.add(checkBoxD8);
 		checkBoxD8.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxD8.setBounds(118, 446, 29, 29);
@@ -497,25 +497,25 @@ public class RunningExam extends JFrame implements Runnable {
 		lblQuestion9.setBounds(25, 80, 500, 130);
 		panel9.add(lblQuestion9);
 		
-		JCheckBox checkBoxA9 = new JCheckBox("");
+		final JCheckBox checkBoxA9 = new JCheckBox("");
 		buttonGroup9.add(checkBoxA9);
 		checkBoxA9.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxA9.setBounds(118, 239, 29, 29);
 		panel9.add(checkBoxA9);
 		
-		JCheckBox checkBoxB9 = new JCheckBox("");
+		final JCheckBox checkBoxB9 = new JCheckBox("");
 		buttonGroup9.add(checkBoxB9);
 		checkBoxB9.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxB9.setBounds(118, 308, 29, 29);
 		panel9.add(checkBoxB9);
 		
-		JCheckBox checkBoxC9 = new JCheckBox("");
+		final JCheckBox checkBoxC9 = new JCheckBox("");
 		buttonGroup9.add(checkBoxC9);
 		checkBoxC9.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxC9.setBounds(118, 377, 29, 29);
 		panel9.add(checkBoxC9);
 		
-		JCheckBox checkBoxD9 = new JCheckBox("");
+		final JCheckBox checkBoxD9 = new JCheckBox("");
 		buttonGroup9.add(checkBoxD9);
 		checkBoxD9.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxD9.setBounds(118, 446, 29, 29);
@@ -535,25 +535,25 @@ public class RunningExam extends JFrame implements Runnable {
 		lblQuestion10.setBounds(25, 80, 500, 130);
 		panel10.add(lblQuestion10);
 		
-		JCheckBox checkBoxA10 = new JCheckBox("");
+		final JCheckBox checkBoxA10 = new JCheckBox("");
 		buttonGroup10.add(checkBoxA10);
 		checkBoxA10.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxA10.setBounds(118, 239, 29, 29);
 		panel10.add(checkBoxA10);
 		
-		JCheckBox checkBoxB10 = new JCheckBox("");
+		final JCheckBox checkBoxB10 = new JCheckBox("");
 		buttonGroup10.add(checkBoxB10);
 		checkBoxB10.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxB10.setBounds(118, 308, 29, 29);
 		panel10.add(checkBoxB10);
 		
-		JCheckBox checkBoxC10 = new JCheckBox("");
+		final JCheckBox checkBoxC10 = new JCheckBox("");
 		buttonGroup10.add(checkBoxC10);
 		checkBoxC10.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxC10.setBounds(118, 377, 29, 29);
 		panel10.add(checkBoxC10);
 		
-		JCheckBox checkBoxD10 = new JCheckBox("");
+		final JCheckBox checkBoxD10 = new JCheckBox("");
 		buttonGroup10.add(checkBoxD10);
 		checkBoxD10.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxD10.setBounds(118, 446, 29, 29);
@@ -573,25 +573,25 @@ public class RunningExam extends JFrame implements Runnable {
 		lblQuestion11.setBounds(25, 80, 500, 130);
 		panel11.add(lblQuestion11);
 		
-		JCheckBox checkBoxA11 = new JCheckBox("");
+		final JCheckBox checkBoxA11 = new JCheckBox("");
 		buttonGroup11.add(checkBoxA11);
 		checkBoxA11.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxA11.setBounds(118, 239, 29, 29);
 		panel11.add(checkBoxA11);
 		
-		JCheckBox checkBoxB11 = new JCheckBox("");
+		final JCheckBox checkBoxB11 = new JCheckBox("");
 		buttonGroup11.add(checkBoxB11);
 		checkBoxB11.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxB11.setBounds(118, 308, 29, 29);
 		panel11.add(checkBoxB11);
 		
-		JCheckBox checkBoxC11 = new JCheckBox("");
+		final JCheckBox checkBoxC11 = new JCheckBox("");
 		buttonGroup11.add(checkBoxC11);
 		checkBoxC11.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxC11.setBounds(118, 377, 29, 29);
 		panel11.add(checkBoxC11);
 		
-		JCheckBox checkBoxD11 = new JCheckBox("");
+		final JCheckBox checkBoxD11 = new JCheckBox("");
 		buttonGroup11.add(checkBoxD11);
 		checkBoxD11.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxD11.setBounds(118, 446, 29, 29);
@@ -611,25 +611,25 @@ public class RunningExam extends JFrame implements Runnable {
 		lblQuestion12.setBounds(25, 80, 500, 130);
 		panel12.add(lblQuestion12);
 		
-		JCheckBox checkBoxA12 = new JCheckBox("");
+		final JCheckBox checkBoxA12 = new JCheckBox("");
 		buttonGroup12.add(checkBoxA12);
 		checkBoxA12.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxA12.setBounds(118, 239, 29, 29);
 		panel12.add(checkBoxA12);
 		
-		JCheckBox checkBoxB12 = new JCheckBox("");
+		final JCheckBox checkBoxB12 = new JCheckBox("");
 		buttonGroup12.add(checkBoxB12);
 		checkBoxB12.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxB12.setBounds(118, 308, 29, 29);
 		panel12.add(checkBoxB12);
 		
-		JCheckBox checkBoxC12 = new JCheckBox("");
+		final JCheckBox checkBoxC12 = new JCheckBox("");
 		buttonGroup12.add(checkBoxC12);
 		checkBoxC12.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxC12.setBounds(118, 377, 29, 29);
 		panel12.add(checkBoxC12);
 		
-		JCheckBox checkBoxD12 = new JCheckBox("");
+		final JCheckBox checkBoxD12 = new JCheckBox("");
 		buttonGroup12.add(checkBoxD12);
 		checkBoxD12.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		checkBoxD12.setBounds(118, 446, 29, 29);
@@ -1120,13 +1120,13 @@ public class RunningExam extends JFrame implements Runnable {
 		
 		
 		// Vector of answer, vector of question
-		Vector questionList =new Vector<Question>();
-		Vector answerAList = new Vector<Checkbox>();
-		Vector answerBList = new Vector<Checkbox>();
-		Vector answerCList = new Vector<Checkbox>();
-		Vector answerDList = new Vector<Checkbox>();
+		Vector questionList =new Vector();
+		Vector answerAList = new Vector();
+		Vector answerBList = new Vector();
+		Vector answerCList = new Vector();
+		Vector answerDList = new Vector();
 
-		Vector lblListQuestion = new Vector<JLabel>();
+		Vector lblListQuestion = new Vector();
 		lblListQuestion.addElement(lblQuestion1);
 		lblListQuestion.addElement(lblQuestion2);
 		lblListQuestion.addElement(lblQuestion3);
@@ -1224,7 +1224,6 @@ public class RunningExam extends JFrame implements Runnable {
 		}
 		setVisible(true);
 	}
-	@Override
 	public void run() {
 		lbmin.setText(String.valueOf(min));
 		lbsec.setText(String.valueOf(sec));

@@ -124,7 +124,7 @@ public class Login extends JFrame implements ActionListener {
 		panel.add(btnLoginTeacher);
 	}
 
-	@Override
+	
 	public void actionPerformed(ActionEvent e) {
 		String n;
 		String p;

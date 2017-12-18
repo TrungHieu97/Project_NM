@@ -9,7 +9,7 @@ import javax.swing.table.TableModel;
 import DataAccess.FunctionAccess;
 
 public class TableValues extends DefaultTableModel{
-	Vector<Student> StudentList = new Vector<>();
+	Vector StudentList = new Vector();
 	FunctionAccess f = new FunctionAccess();
 	
 
@@ -21,8 +21,9 @@ public class TableValues extends DefaultTableModel{
 		int n = StudentList.size();
 		values = new Object[n][2];
 		for(int i = 0 ; i < n; i++) {
-			values[i][0] =(String) StudentList.get(i).name;
-			values[i][1] =(Float) StudentList.get(i).mark;
+			Student s=(Student) StudentList.get(i);
+			values[i][0] =(String) s.name;
+			values[i][1] =new Float(s.mark);
 		}
 	}
 

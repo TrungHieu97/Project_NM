@@ -4,9 +4,9 @@ import java.util.*;
 
 import Data.*;
 public class FunctionAccess {
-	public Vector<Question> getQuestion(){
+	public Vector getQuestion(){
 		Question ch;
-		Vector<Question> v=new Vector<Question>();
+		Vector v=new Vector();
 		Connection cons=null;
 		Statement state=null;
 		ResultSet rs=null;
@@ -53,10 +53,10 @@ public class FunctionAccess {
 				se.printStackTrace();
 			}
 		}
-		return new Vector<Question>(v);
+		return new Vector(v);
 	}
-	public Vector<Student> getInformationOfUser() {
-		Vector<Student> v=new Vector<Student>();
+	public Vector getInformationOfUser() {
+		Vector v=new Vector();
 		Connection cons=null;
 		Statement state=null;
 		ResultSet rs=null;
@@ -97,7 +97,7 @@ public class FunctionAccess {
 				se.printStackTrace();
 			}
 		}
-		return new Vector<Student>(v);
+		return new Vector(v);
 	}
 	public void insertQuestion(int id,String ques,String ans1,String ans2,String ans3,String ans4) {
 		Connection cons=null;
@@ -245,7 +245,7 @@ public class FunctionAccess {
 	}
 	public void print(int x) {
 		if(x==1) {
-			Vector<Question> v=new Vector<Question>();
+			Vector v=new Vector();
 			v=new FunctionAccess().getQuestion();
 			Question ch=null;
 			for(int i=0;i<v.size();i++) {
@@ -254,7 +254,7 @@ public class FunctionAccess {
 			}
 		}
 		else {
-			Vector<Student> v=new Vector<Student>();
+			Vector v=new Vector();
 			v=new FunctionAccess().getInformationOfUser();
 			Student u=null;
 			for(int i=0;i<v.size();i++) {

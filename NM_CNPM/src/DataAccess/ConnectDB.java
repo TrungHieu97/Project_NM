@@ -5,7 +5,7 @@ public class ConnectDB {
 		java.sql.Connection cons=null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			cons=DriverManager.getConnection("jdbc:mysql://localhost:3306/nmcnpm?useSSL=false", "root", "mysql");
+			cons=DriverManager.getConnection("jdbc:mysql://localhost:3306/nmcnpm?useSSL=false", "root", "1111");
 		}
 		catch(ClassNotFoundException e) {
 			e.printStackTrace();
