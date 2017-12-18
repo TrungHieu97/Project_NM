@@ -28,6 +28,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Manager extends JFrame {
 
@@ -37,14 +39,21 @@ public class Manager extends JFrame {
 	public JPanel panel1;
 	public JPanel panel2;
 	public JPanel panel_3;
-	
-	private JTable tableQuestion;
 	private JTable tableStudent;
+	private JTable tableQuestion;
 	
 	private JTextField tfName;
 	private JTextField tfPass;
 	
 	public TableValues tb;
+	private JTextField tfAnsA;
+	private JTextField tfQues;
+	private JTextField tfAnsB;
+	private JTextField tfAnsC;
+	private JTextField tfAnsD;
+	
+	public String[] columnnameStudent = {"NAME" , "MARK"};
+	public String[] columnnameQuestion = {"QUESION", "ANSWER A", "ANSWER B", "ANSWER C", "ANSWER D"};
 	
 
 	/**
@@ -118,11 +127,12 @@ public class Manager extends JFrame {
 		panelparent.add(panel1, "panel1");
 		panel1.setLayout(null);
 		
-		String[] columnname = {"NAME" , "MARK"};
+		
 		
 		
 		tb = new TableValues();
 		tb.getStudent();
+		tb.getQuesstion();
 		
 		// Add account student
 		JButton btnAddStudent = new JButton("ADD");
@@ -174,7 +184,7 @@ public class Manager extends JFrame {
 		scrollPane1.setBounds(15, 163, 575, 326);
 		panel1.add(scrollPane1);
 		
-		tableStudent = new JTable(new DefaultTableModel(tb.values,columnname));
+		tableStudent = new JTable(new DefaultTableModel(tb.valuesStudent,columnnameStudent));
 		tableStudent.setFillsViewportHeight(true);
 		tableStudent.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		scrollPane1.setViewportView(tableStudent);
@@ -205,31 +215,137 @@ public class Manager extends JFrame {
 		panelparent.add(panel2, "panel2");
 		panel2.setLayout(null);
 		
-		
-		tableQuestion = new JTable();
-		tableQuestion.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		tableQuestion.setBounds(15, 16, 605, 487);
-		panel2.add(tableQuestion);
-		
 		JButton btnAddQues = new JButton("ADD");
+		btnAddQues.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String q = tfQues.getText();
+				String a = tfAnsA.getText();
+				String b = tfAnsB.getText();
+				String c = tfAnsC.getText();
+				String d = tfAnsD.getText();
+				boolean check = q.trim().equals("")||a.trim().equals("")
+						||b.trim().equals("")||c.trim().equals("")||d.trim().equals("");
+				int count = tableQuestion.getRowCount();
+				if(!check) {
+					FunctionAccess f = new FunctionAccess();
+					f.insertQuestion(count + 1, q, a, b, c, d);
+					DefaultTableModel df = (DefaultTableModel) tableQuestion.getModel();
+					df.addRow(new Object[] {q,a,b,c,d});
+				}
+				else { JOptionPane.showMessageDialog(null, "There is no field is blank");}
+			}
+		});
 		btnAddQues.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnAddQues.setBackground(SystemColor.inactiveCaption);
 		btnAddQues.setBounds(635, 28, 128, 43);
 		panel2.add(btnAddQues);
 		
 		JButton btnDeleteQues = new JButton("DELETE");
+		btnDeleteQues.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel df = (DefaultTableModel) tableQuestion.getModel();
+				if(tableQuestion.getSelectedRow() == -1) {
+					if(tableQuestion.getRowCount() == 0) {
+						JOptionPane.showMessageDialog(null, "Table is empty");
+					}
+					else { JOptionPane.showMessageDialog(null, "You must select a question");}
+				}
+				else {
+					String q = (String) df.getValueAt(tableQuestion.getSelectedRow(), 0);
+					String a = (String) df.getValueAt(tableQuestion.getSelectedRow(), 1);
+					String b = (String) df.getValueAt(tableQuestion.getSelectedRow(), 2);
+					String c = (String) df.getValueAt(tableQuestion.getSelectedRow(), 3);
+					String d = (String) df.getValueAt(tableQuestion.getSelectedRow(), 4);
+					
+					df.removeRow(tableQuestion.getSelectedRow());
+					FunctionAccess f = new FunctionAccess();
+					f.deleteQuestion(q);
+				}
+				
+			}
+		});
 		btnDeleteQues.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnDeleteQues.setBackground(SystemColor.inactiveCaption);
 		btnDeleteQues.setBounds(635, 103, 128, 43);
 		panel2.add(btnDeleteQues);
+		
+		JLabel lblQuestion = new JLabel("Question");
+		lblQuestion.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblQuestion.setBounds(41, 16, 90, 43);
+		panel2.add(lblQuestion);
+		
+		JLabel lblAnswerA = new JLabel("Answer A");
+		lblAnswerA.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblAnswerA.setBounds(41, 75, 90, 43);
+		panel2.add(lblAnswerA);
+		
+		JLabel lblAnswerb = new JLabel("Answer B");
+		lblAnswerb.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblAnswerb.setBounds(41, 134, 90, 43);
+		panel2.add(lblAnswerb);
+		
+		JLabel lblAnswerc = new JLabel("Answer C");
+		lblAnswerc.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblAnswerc.setBounds(41, 193, 90, 43);
+		panel2.add(lblAnswerc);
+		
+		JLabel lblAnswerD = new JLabel("Answer D");
+		lblAnswerD.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblAnswerD.setBounds(41, 244, 90, 43);
+		panel2.add(lblAnswerD);
+		
+		tfAnsA = new JTextField();
+		tfAnsA.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		tfAnsA.setBounds(146, 79, 458, 34);
+		panel2.add(tfAnsA);
+		tfAnsA.setColumns(10);
+		
+		tfQues = new JTextField();
+		tfQues.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		tfQues.setColumns(10);
+		tfQues.setBounds(144, 20, 460, 34);
+		panel2.add(tfQues);
+		
+		tfAnsB = new JTextField();
+		tfAnsB.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		tfAnsB.setColumns(10);
+		tfAnsB.setBounds(146, 138, 458, 34);
+		panel2.add(tfAnsB);
+		
+		tfAnsC = new JTextField();
+		tfAnsC.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		tfAnsC.setColumns(10);
+		tfAnsC.setBounds(146, 197, 458, 34);
+		panel2.add(tfAnsC);
+		
+		tfAnsD = new JTextField();
+		tfAnsD.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		tfAnsD.setColumns(10);
+		tfAnsD.setBounds(146, 248, 458, 34);
+		panel2.add(tfAnsD);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(15, 303, 748, 198);
+		panel2.add(scrollPane);
+		
+		tableQuestion = new JTable(new DefaultTableModel(tb.valuesQuestion,columnnameQuestion));
+		tableQuestion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				DefaultTableModel df = (DefaultTableModel) tableQuestion.getModel();
+				tfQues.setText((String) df.getValueAt(tableQuestion.getSelectedRow(), 0));
+				tfAnsA.setText((String) df.getValueAt(tableQuestion.getSelectedRow(), 1));
+				tfAnsB.setText((String) df.getValueAt(tableQuestion.getSelectedRow(), 2));
+				tfAnsC.setText((String) df.getValueAt(tableQuestion.getSelectedRow(), 3));
+				tfAnsD.setText((String) df.getValueAt(tableQuestion.getSelectedRow(), 4));
+			}
+		});
+		tableQuestion.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		scrollPane.setViewportView(tableQuestion);
 		setVisible(true);
+		
+
 	}
 	
-	private Object[] loadColumnname() {
-		return new Object[] {};
-	}
-	
-	private Object[][] loadData() {
-		return new Object[][] {};
-	}
+
 }
